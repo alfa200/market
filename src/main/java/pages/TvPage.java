@@ -25,7 +25,6 @@ public class TvPage extends BasePage {
 
 
     public List<WebElement> getArticle() {
-        System.out.println("dsfsdfsdfsdfsdf" + article.size());
         return article;
     }
 

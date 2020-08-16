@@ -56,7 +56,6 @@ public class ScenarioSteps {
 
     @When("^считает колиечество товаров \"(.+)\"$")
     public void checkElementsQuantity(String quantity){
-        BaseSteps.getDriver().switchTo().frame(0);
         List<WebElement> list = BaseSteps.getDriver().findElements(By.xpath("//div[2]/div[5]/div[6]/div/div[1]/div/div/div/article"));
         System.out.println("sdfdfdsfsdfs   " + list.size());
         //tvSteps.stepCheckElementsQuantity(quantity);
