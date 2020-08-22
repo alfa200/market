@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.TvPage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class ScenarioSteps {
     ElectronicsSteps electronicsSteps = new ElectronicsSteps();
     TvSteps tvSteps = new TvSteps();
     TvAllFiltersSteps tvAllFiltersSteps = new TvAllFiltersSteps();
-
+    BaseSteps baseSteps = new BaseSteps();
 
     @When("^Переход на страницу Маркета$")
     public void selectMarketLink() {
@@ -56,10 +57,26 @@ public class ScenarioSteps {
 
     @When("^считает колиечество товаров \"(.+)\"$")
     public void checkElementsQuantity(String quantity){
-        List<WebElement> list = BaseSteps.getDriver().findElements(By.xpath("//div[2]/div[5]/div[6]/div/div[1]/div/div/div/article"));
-        System.out.println("sdfdfdsfsdfs   " + list.size());
-        //tvSteps.stepCheckElementsQuantity(quantity);
+        tvSteps.stepCheckElementsQuantity(quantity);
     }
 
+    @When("^Запомнить первый элемент в списке$")
+    public void saveFirstArticleText() throws IOException {
+        tvSteps.stepSaveFirstArticleText();
+    }
 
+    @When("^Вводит в поисковую строку запомненное значение$")
+    public void inputSavedArticle() throws IOException {
+        tvSteps.stepInputFirstArticle();
+    }
+
+    @When("^Нажимает Найти$")
+    public void pressSubmitButton() {
+        tvSteps.stepPressSubmitButton();
+    }
+
+    @When("^Проверяет наименование найденного товара$")
+    public void checkFoundTv() throws IOException {
+        tvSteps.stepCheckFoundTv();
+    }
 }
