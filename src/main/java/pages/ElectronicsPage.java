@@ -18,4 +18,12 @@ public class ElectronicsPage extends BasePage{
     public void selectTvLink(){
         tvLink.click();
     }
+
+    @FindBy(linkText = "Наушники и Bluetooth-гарнитуры")
+    WebElement headphonesLink;
+
+    public void selectHeadphonesLink(){
+        headphonesLink.click();
+    }
+
 }

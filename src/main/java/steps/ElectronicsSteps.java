@@ -11,4 +11,10 @@ public class ElectronicsSteps {
     public void stepSelectTvLink(){
         new ElectronicsPage(BaseSteps.getDriver()).selectTvLink();
     }
+
+    @Step("Перейти в раздел Наушники и Bluetooth-гарнитуры")
+    public void stepSelectHeadphonesLink(){
+        new ElectronicsPage(BaseSteps.getDriver()).selectHeadphonesLink();
+    }
+
 }

@@ -1,41 +1,39 @@
 package steps;
 
-import pages.TvPage;
+import pages.ElectronicsGoodsPage;
 import ru.yandex.qatools.allure.annotations.Step;
 
-import java.io.IOException;
 
-
-public class TvSteps {
+public class ElectronicsGoodsSteps {
 
     @Step("Переход в Все фильтры")
     public void stepClickAllFiltersButton(){
-        new TvPage(BaseSteps.getDriver()).clickAllFiltersButton();
+        new ElectronicsGoodsPage(BaseSteps.getDriver()).clickAllFiltersButton();
     }
 
     @Step("Проверка: количество товаров равно {0}")
     public void stepCheckElementsQuantity(String quantity){
-        new TvPage(BaseSteps.getDriver()).checkElementsQuantity(quantity);
+        new ElectronicsGoodsPage(BaseSteps.getDriver()).checkElementsQuantity(quantity);
     }
 
     @Step("Сохраняет наименование первого элемента")
-    public void stepSaveFirstArticleText() throws IOException {
-        new TvPage(BaseSteps.getDriver()).setFirstArticleText();
+    public void stepSaveFirstArticleText()  {
+        new ElectronicsGoodsPage(BaseSteps.getDriver()).setFirstArticleText();
     }
 
     @Step("Вводит название первого телевизора в поисковую строку")
     public void stepInputFirstArticle() {
-        TvPage tvPage = new TvPage(BaseSteps.getDriver());
-        tvPage.fillField(tvPage.getHeaderSearch(), tvPage.getFirstArticleText());
+        ElectronicsGoodsPage electronicsGoodsPage = new ElectronicsGoodsPage(BaseSteps.getDriver());
+        electronicsGoodsPage.fillField(electronicsGoodsPage.getHeaderSearch(), electronicsGoodsPage.getFirstArticleText());
     }
     @Step("Нажать Найти")
     public void stepPressSubmitButton(){
-        new TvPage(BaseSteps.getDriver()).pressSubmitButton();
+        new ElectronicsGoodsPage(BaseSteps.getDriver()).pressSubmitButton();
     }
 
     @Step("Проверка наименования найденного товара")
     public void stepCheckFoundTv() {
-        new TvPage(BaseSteps.getDriver()).checkFounDTv();
+        new ElectronicsGoodsPage(BaseSteps.getDriver()).checkFounDTv();
     }
 
 

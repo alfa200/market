@@ -1,14 +1,6 @@
 package steps;
 
 import cucumber.api.java.en.When;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import pages.TvPage;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class ScenarioSteps {
@@ -16,9 +8,9 @@ public class ScenarioSteps {
     MainSteps mainSteps = new MainSteps();
     MarketSteps marketSteps = new MarketSteps();
     ElectronicsSteps electronicsSteps = new ElectronicsSteps();
-    TvSteps tvSteps = new TvSteps();
-    TvAllFiltersSteps tvAllFiltersSteps = new TvAllFiltersSteps();
-    BaseSteps baseSteps = new BaseSteps();
+    ElectronicsGoodsSteps electronicsGoodsSteps = new ElectronicsGoodsSteps();
+    ElectronicsAllFiltersSteps electronicsAllFiltersSteps = new ElectronicsAllFiltersSteps();
+
 
     @When("^Переход на страницу Маркета$")
     public void selectMarketLink() {
@@ -35,48 +27,53 @@ public class ScenarioSteps {
         electronicsSteps.stepSelectTvLink();
     }
 
+    @When("^Переход на страницу Наушники и Bluetooth-гарнитуры$")
+    public void selectHeadphonesLink() {
+        electronicsSteps.stepSelectHeadphonesLink();
+    }
+
     @When("^Переход в Все фильтры$")
     public void clickAllFiltersButton(){
-        tvSteps.stepClickAllFiltersButton();
+        electronicsGoodsSteps.stepClickAllFiltersButton();
     }
 
     @When("^устанавливает нижнюю гриницу цены \"(.+)\"$")
     public void fillLowestPrice(String lowPrice){
-        tvAllFiltersSteps.stepFillLowestPrice(lowPrice);
+        electronicsAllFiltersSteps.stepFillLowestPrice(lowPrice);
     }
 
     @When("^устанавливает марку \"(.+)\"$")
     public void selectProducer(String producer){
-        tvAllFiltersSteps.stepSelectProducer(producer);
+        electronicsAllFiltersSteps.stepSelectProducer(producer);
     }
 
     @When("^отображает отобранные товары")
     public void clickShowAllOffersButton(){
-        tvAllFiltersSteps.stepСlickShowAllOffersButton();
+        electronicsAllFiltersSteps.stepСlickShowAllOffersButton();
     }
 
     @When("^считает колиечество товаров \"(.+)\"$")
     public void checkElementsQuantity(String quantity){
-        tvSteps.stepCheckElementsQuantity(quantity);
+        electronicsGoodsSteps.stepCheckElementsQuantity(quantity);
     }
 
     @When("^Запомнить первый элемент в списке$")
-    public void saveFirstArticleText() throws IOException {
-        tvSteps.stepSaveFirstArticleText();
+    public void saveFirstArticleText() {
+        electronicsGoodsSteps.stepSaveFirstArticleText();
     }
 
     @When("^Вводит в поисковую строку запомненное значение$")
-    public void inputSavedArticle() throws IOException {
-        tvSteps.stepInputFirstArticle();
+    public void inputSavedArticle() {
+        electronicsGoodsSteps.stepInputFirstArticle();
     }
 
     @When("^Нажимает Найти$")
     public void pressSubmitButton() {
-        tvSteps.stepPressSubmitButton();
+        electronicsGoodsSteps.stepPressSubmitButton();
     }
 
     @When("^Проверяет наименование найденного товара$")
-    public void checkFoundTv() throws IOException {
-        tvSteps.stepCheckFoundTv();
+    public void checkFoundTv() {
+        electronicsGoodsSteps.stepCheckFoundTv();
     }
 }

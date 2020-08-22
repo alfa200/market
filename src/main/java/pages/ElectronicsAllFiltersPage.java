@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class TvAllFiltersPage extends BasePage{
+public class ElectronicsAllFiltersPage extends BasePage {
 
-    public TvAllFiltersPage(WebDriver driver) {
+    public ElectronicsAllFiltersPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }

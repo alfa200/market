@@ -9,15 +9,15 @@ import org.openqa.selenium.support.PageFactory;
 import java.io.IOException;
 import java.util.List;
 
-public class TvPage extends BasePage {
+public class ElectronicsGoodsPage extends BasePage {
 
-    public TvPage(WebDriver driver) {
+    public ElectronicsGoodsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
     public static String firstArticleText;
 
-    @FindBy(xpath = "//aside/div/div/div[3]/div/div/div[3]/div/div/a")
+    @FindBy(xpath = "//div[@data-zone-name='all-filters-button']//a")
     WebElement allFiltersButton;
 
     @FindBy(xpath = "//div[@data-zone-name='SearchResults']//article")
@@ -49,7 +49,7 @@ public class TvPage extends BasePage {
         return firstArticleText;
     }
 
-    public void setFirstArticleText() throws IOException {
+    public void setFirstArticleText() {
         this.firstArticleText = firstArticle.getText();
     }
 
