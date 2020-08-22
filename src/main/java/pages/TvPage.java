@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import steps.BaseSteps;
-import util.FileWriterReader;
 
 import java.io.IOException;
 import java.util.List;
@@ -17,7 +15,7 @@ public class TvPage extends BasePage {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
-    public String firstArticleText;
+    public static String firstArticleText;
 
     @FindBy(xpath = "//aside/div/div/div[3]/div/div/div[3]/div/div/a")
     WebElement allFiltersButton;
@@ -42,21 +40,17 @@ public class TvPage extends BasePage {
         return article;
     }
 
-    public String getFirstArticleText() {
-        return firstArticle.getText();
-    }
 
     public void clickAllFiltersButton() {
         allFiltersButton.click();
     }
 
-    public String readFirstArticleText() throws IOException {
-        return FileWriterReader.readFromFile("FirstArticle");
+    public String getFirstArticleText() {
+        return firstArticleText;
     }
 
     public void setFirstArticleText() throws IOException {
         this.firstArticleText = firstArticle.getText();
-        FileWriterReader.writeIntoFile("FirstArticle", firstArticle.getText());
     }
 
 
@@ -68,8 +62,8 @@ public class TvPage extends BasePage {
         Assert.assertTrue(String.valueOf(article.size()).equals(quantity));
     }
 
-    public void checkFounDTv() throws IOException {
-        Assert.assertEquals(readFirstArticleText(), getFirstArticleText());
+    public void checkFounDTv() {
+        Assert.assertEquals(getFirstArticleText(), firstArticle.getText());
     }
 
 }

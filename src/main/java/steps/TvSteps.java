@@ -24,9 +24,9 @@ public class TvSteps {
     }
 
     @Step("Вводит название первого телевизора в поисковую строку")
-    public void stepInputFirstArticle() throws IOException {
+    public void stepInputFirstArticle() {
         TvPage tvPage = new TvPage(BaseSteps.getDriver());
-        tvPage.fillField(tvPage.getHeaderSearch(), tvPage.readFirstArticleText());
+        tvPage.fillField(tvPage.getHeaderSearch(), tvPage.getFirstArticleText());
     }
     @Step("Нажать Найти")
     public void stepPressSubmitButton(){
@@ -34,7 +34,7 @@ public class TvSteps {
     }
 
     @Step("Проверка наименования найденного товара")
-    public void stepCheckFoundTv() throws IOException {
+    public void stepCheckFoundTv() {
         new TvPage(BaseSteps.getDriver()).checkFounDTv();
     }
 
